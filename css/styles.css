@@ -10,11 +10,166 @@
 	font-family: 'Poppins';
 }
 
-.profile-section {
-	display: flex;
-	gap: 50px;
+:root{
+	--width-slide: 800px;
+	--translateX: -280px;
+	--translateY: -173px;
+	--top-info: 40%;
+	--right-info: 10%;
 }
 
-img.profile {
+body {
+	color: #4a4a4a;
+	background-color: #f9f9f9;
+}
+
+header{
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.profile-section {
+	display: flex;
+	justify-content: center;
+}
+
+.profile-cover{
+	position: relative;
+	width: 230px;
+	height: 230px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 99;
+	background-color: white;
+	border-radius: 300px;
+	transition: .7s ease-in-out;
+}
+
+.profile-cover:hover{
+	width: var(--width-slide);
+	transition: .5s ease-in-out;
+	box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+}
+
+.profile-cover:hover .profile{
+	transform: translateX(var(--translateX));
+	transition: transform .5s ease-in-out;
+}
+
+.profile-cover:hover .info{
+	opacity: 1;
+	right: 180px;
+	transition: .2s ease-in-out .5s;
+}
+
+/* .profile-cover:hover .info{
+	visibility: visible;
+	transform: translateX(0);
+	transition: .5s ease-in-out;
+} */
+
+img.profile{
+	margin: 0;
 	border-radius: 50%;
+	transition: transform .7s ease-in-out;
+}
+
+.info{
+	display: flex;
+	font-size: 1.5rem;
+	flex-direction: column;
+	gap: 20px;
+	position: absolute;
+	opacity: 0;
+	height: fit-content;
+	padding: 20px;
+}
+
+header h1{
+	text-align: center;
+}
+
+/************************************ IPHONE 14 PRO MAX - IPHONE 12 PRO MAX  ****************************************/
+@media screen and (max-width: 428px) {
+	:root{
+		--width-slide: 400px;
+		--translateX: 0;
+	}
+
+	.profile-cover:hover{
+		height: 75vh;
+		border-radius: 50px;
+	}
+
+	.profile-cover:hover .profile{
+		transform: translateY(var(--translateY));
+	}
+
+	.profile-cover{
+		flex-direction: column;
+	}
+
+	.profile-cover:hover .info{
+		opacity: 1;
+		top: var(--top-info);
+		right: var(--right-info);
+		transition: .2s ease-in-out .5s;
+	}
+}
+
+@media screen and (max-width: 390px){
+	:root{
+		--width-slide: 380px;
+		--translateY: -130px;
+		--top-info: 45%;
+	}
+}
+
+@media screen and (max-width: 375px){
+	:root{
+		--width-slide: 360px;
+		--translateY: -130px;
+		--right-info: 5%;
+	}
+}
+
+@media screen and (max-width: 360px){
+	:root{
+		--width-slide: 340px;
+		--translateY: -110px;
+		--right-info: 3%;
+		--top-info: 50%;
+	}
+}
+
+@media screen and (max-width: 320px){
+	:root{
+		--width-slide: 300px;
+		--translateY: -80px;
+		--right-info: 6%;
+		--top-info: 50%;
+	}
+
+	header{
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+
+	.profile-cover{
+		width: 180px;
+		height: 180px;
+	}
+
+	img.profile{
+		height: 150px;
+		width: 150px;
+	}
+
+	.info{
+		font-size: 1.2rem;
+	}
+
 }
